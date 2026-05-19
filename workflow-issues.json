@@ -9,7 +9,7 @@
               "field": "weeks",
               "weeklyConfig": {
                 "daysOfTheWeek": [1],
-                "hour": 10,
+                "hour": 14,
                 "minute": 0
               }
             }
@@ -17,7 +17,7 @@
         }
       },
       "id": "b1000000-0000-0000-0001-000000000001",
-      "name": "Lunes 10am",
+      "name": "Lunes 2pm",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [-992, 32]
@@ -136,20 +136,20 @@
     },
     {
       "parameters": {
-        "model": "llama-3.3-70b-versatile",
+        "model": "deepseek-chat",
         "options": {
           "temperature": 0.3
         }
       },
       "id": "b1000000-0000-0000-0007-000000000007",
-      "name": "Groq Llama 3.3 70B",
-      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "name": "DeepSeek V3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [-128, 240],
       "credentials": {
-        "groqApi": {
-          "id": "CREDENCIAL_GROQ",
-          "name": "Groq account"
+        "openAiApi": {
+          "id": "CREDENCIAL_DEEPSEEK",
+          "name": "DeepSeek account"
         }
       }
     },
@@ -228,7 +228,7 @@
   ],
   "pinData": {},
   "connections": {
-    "Lunes 10am": {
+    "Lunes 2pm": {
       "main": [[{"node": "Leer BBDD", "type": "main", "index": 0}]]
     },
     "Leer BBDD": {
@@ -249,7 +249,7 @@
     "Preparar Issues": {
       "main": [[{"node": "Resumir Issues con IA", "type": "main", "index": 0}]]
     },
-    "Groq Llama 3.3 70B": {
+    "DeepSeek V3": {
       "ai_languageModel": [[{"node": "Resumir Issues con IA", "type": "ai_languageModel", "index": 0}]]
     },
     "Resumir Issues con IA": {

@@ -1,5 +1,5 @@
 {
-  "name": "Resumen Semanal Notas Proyectos",
+  "name": "Resumen Semanal Notas BBDD",
   "nodes": [
     {
       "parameters": {
@@ -16,7 +16,7 @@
         }
       },
       "id": "e0696a8a-edd5-4677-9b04-eeb0cf6bc313",
-      "name": "Lunes 9am",
+      "name": "Lunes 1pm",
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
       "position": [
@@ -28,15 +28,13 @@
       "parameters": {
         "documentId": {
           "__rl": true,
-          "value": "1CLTHic4LUBWvBVwiyJqQUSD_NvOCMK6G9sg5DJxlQh0",
+          "value": "={{ $env.SPREADSHEET_ID }}",
           "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 1556094522,
-          "mode": "list",
-          "cachedResultName": "BBDD",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CLTHic4LUBWvBVwiyJqQUSD_NvOCMK6G9sg5DJxlQh0/edit#gid=1556094522"
+          "value": "BBDD",
+          "mode": "name"
         },
         "filtersUI": {
           "values": [
@@ -145,23 +143,23 @@
     },
     {
       "parameters": {
-        "model": "llama-3.3-70b-versatile",
+        "model": "deepseek-chat",
         "options": {
           "temperature": 0.3
         }
       },
       "id": "f52d53fb-3f81-4b24-9440-b20074bc50f5",
-      "name": "Groq Llama 3.3 70B",
-      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "name": "DeepSeek V3",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
       "typeVersion": 1,
       "position": [
         -128,
         240
       ],
       "credentials": {
-        "groqApi": {
-          "id": "S0GIo2JU9exozevA",
-          "name": "Groq account"
+        "openAiApi": {
+          "id": "CREDENCIAL_DEEPSEEK",
+          "name": "DeepSeek account"
         }
       }
     },
@@ -170,15 +168,13 @@
         "operation": "update",
         "documentId": {
           "__rl": true,
-          "value": "=1CLTHic4LUBWvBVwiyJqQUSD_NvOCMK6G9sg5DJxlQh0",
+          "value": "={{ $env.SPREADSHEET_ID }}",
           "mode": "id"
         },
         "sheetName": {
           "__rl": true,
-          "value": 1556094522,
-          "mode": "list",
-          "cachedResultName": "BBDD",
-          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1CLTHic4LUBWvBVwiyJqQUSD_NvOCMK6G9sg5DJxlQh0/edit#gid=1556094522"
+          "value": "BBDD",
+          "mode": "name"
         },
         "columns": {
           "mappingMode": "defineBelow",
@@ -574,7 +570,7 @@
   ],
   "pinData": {},
   "connections": {
-    "Lunes 9am": {
+    "Lunes 1pm": {
       "main": [
         [
           {
@@ -637,7 +633,7 @@
         ]
       ]
     },
-    "Groq Llama 3.3 70B": {
+    "DeepSeek V3": {
       "ai_languageModel": [
         [
           {
